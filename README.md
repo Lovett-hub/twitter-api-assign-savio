@@ -1,34 +1,89 @@
-#Bonus Assignment Twitter API#
-# Twitter API Node.js Assignment
 
-## Introduction
 
-This project is a Node.js application that demonstrates how to interact with the Twitter API to create and delete tweets. It teaches the basics of OAuth authentication, working with third-party APIs, and error handling in a real-world application. Through this assignment, you'll learn how to authenticate a Node.js app with Twitter, post new tweets, delete existing tweets, and handle common API errors.
+#Twitter API Interaction with Node.js
 
-## Setup Instructions
+# Introduction
+This project is a simple Node.js application that demonstrates how to interact with the Twitter API. The program allows you to post and delete tweets using your Twitter Developer credentials. Through this project, you will learn how to use OAuth authentication, make API requests, handle errors, and manage environment variables securely.
 
-### Prerequisites
-1. **Node.js**: Ensure you have [Node.js](https://nodejs.org/) installed on your machine.
-2. **Twitter Developer Account**: You need a Twitter Developer account to access the Twitter API.
+##Setup Instructions
 
-### Step 1: Setting up a Twitter Developer Account
-1. Visit [Twitter Developer](https://developer.twitter.com/) and sign in with your Twitter account.
-2. Create a new Twitter developer account by following the registration process. You will need to provide details about the intended use of the API.
-3. After approval, go to the **Developer Dashboard** and create a new project under "Projects & Apps."
+ #1. Created  a Twitter Developer Account
 
-### Step 2: Generating API Keys
-1. Navigate to the **Keys and Tokens** section of your app in the Developer Dashboard.
-2. Generate the following keys and tokens:
-   - API Key
-   - API Secret Key
-   - Bearer Token
-   - Access Token
-   - Access Token Secret
-3. Store these credentials securely, as they will be needed to authenticate your app with the Twitter API.
+- [ ] Visited the [Twitter Developer Portal](https://developer.twitter.com/) and sign up for a developer account.
+- [ ] Once your account is set up, create a new project and an associated Twitter app.
+  
+# 2. Generate API Keys
+After creating your Twitter app, navigate to the "Keys and Tokens" section and generate the following credentials:
+- [ ] API Key
+- [ ] API Secret Key
+- [ ] Access Token
+- [ ] Access Token Secret
 
-### Step 3: Cloning and Running the Program
-1. Clone the repository to your local machine:
-   ```bash
-   git clone https://github.com/yourusername/twitter-api-assignment.git
-   cd twitter-api-assignment
+#3. Set up Environment Variables:
+Create a .env file in your project root directory and add the following keys:
+  
+  API_KEY=your_api_key_here
+  API_SECRET_KEY=your_api_secret_key_here
+  ACCESS_TOKEN=your_access_token_here
+  ACCESS_TOKEN_SECRET=your_access_token_secret_here
+  
+  Replace the placeholders with your actual keys from the Twitter Developer portal.
+
+#4. Run the Program Install the necessary packages by running bash
+ 
+ 
+ Program Details
+
+#1. Posting a New Tweet
+The function `postTweet()` sends a request to the Twitter API to post a new tweet. Here's how it works:
+- [ ]  It authenticates the API request using the credentials from the .env file.
+- [ ] It sends a request to the Twitter API endpoint to create a tweet.
+  
+For Example:
+javascript
+postTweet("Hello from Twitter API!");
+
+
+API Response:
+json
+{
+  "data": {
+    "id": "1234567890",
+    "text": "Hello from Twitter API!"
+  }
+}
+
+  
+# 2. Deleting an Existing Tweet
+The deleteTweet() function sends a request to delete a tweet using its tweet ID. Here's how it works:
+- [ ]  It authenticates using your credentials.
+- [ ]  It calls the delete endpoint with the specific tweet ID.
+
+Example:
+javascript
+deleteTweet("1234567890");
+
+
+API Response:
+json
+{
+  "data": {
+    "id": "1234567890",
+    "deleted": true
+  }
+}
+
+
+# Error Handling
+The program handles errors that might occur during API calls. For instance, if the API keys are incorrect, or the tweet ID is invalid, the program will catch the error and log it.
+
+Example Error:
+json
+{
+  "title": "Undifiend”,
+  "detail": "Invalid or expired token",
+  "type": "about:blank",
+  "status": 401
+}
+
 
